@@ -1,8 +1,7 @@
 {
   "name": "braingames-jekson",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Hexlet project \"brain-games\" ",
   "bin": {
     "brain-games": "dist/bin/brain-games.js"
   },
@@ -14,7 +13,11 @@
     "build": "NODE_ENV=production babel src --out-dir dist --source-maps inline",
     "prepublishOnly": "npm run build"
   },
-  "author": "",
+  "keywords": [
+    "Hexlet",
+    "brain-games"
+  ],
+  "author": "Evgenij Popov",
   "license": "ISC",
   "devDependencies": {
     "@babel/cli": "^7.2.3",
