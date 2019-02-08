@@ -1,4 +1,4 @@
-import { minNumber, maxNumber, maxRoundNumber } from './mainConstants';
+import { minNumber, maxNumber } from './mainConstants';
 import { congratulationMessage, loosingMessage, correctMessage, userAnswer } from './index'; // eslint-disable-line
 
 const random = (minNum, maxNum) => () => Math.floor(minNum + Math.random() * (maxNum + 1 - minNum));

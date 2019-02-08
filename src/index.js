@@ -10,11 +10,11 @@ export const userNameChat = () => {
 
 export const userAnswer = () => readlineSync.question('Your answer: ');
 
-export const congratulationMessage = (userName) => console.log(`Congratulations, ${userName}!`);
+export const congratulationMessage = userName => console.log(`Congratulations, ${userName}!`);
 
 export const loosingMessage = (answer, correctAnswer, userName) => {
   console.log(`'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
   console.log(`Let's try again, ${userName}!`);
 };
 
-export const correctMessage = (userName) => console.log('Correct!');
+export const correctMessage = () => console.log('Correct!');
