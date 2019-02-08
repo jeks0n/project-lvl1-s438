@@ -16,13 +16,6 @@ export const greetingStartHeader = (whatShouldBeDone) => {
   return userName;
 };
 
-export const userAnswer = () => readlineSync.question('Your answer: ');
-
-export const loosingMessage = (answer, correctAnswer, userName) => {
-  console.log(`'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
-  console.log(`Let's try again, ${userName}!`);
-};
-
 export const makeGame = (whatShouldBeDone, roundMax, checkFunction, questionFunction) => {
   const userName = greetingStartHeader(whatShouldBeDone);
 
@@ -34,11 +27,12 @@ export const makeGame = (whatShouldBeDone, roundMax, checkFunction, questionFunc
 
     const question = questionFunction();
     console.log(`Question: ${question}`);
-    const answer = userAnswer();
+    const answer = readlineSync.question('Your answer: ');
     const correctAnswer = checkFunction(question);
 
     if (answer !== correctAnswer) {
-      loosingMessage(answer, correctAnswer, userName);
+      console.log(`'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
+      console.log(`Let's try again, ${userName}!`);
       return;
     }
     console.log('Correct!');
