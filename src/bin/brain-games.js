@@ -1,7 +1,6 @@
 #!/usr/bin/env node
-import greetingsChat from '..';
+import { greetingMessage, userNameChat } from '..';
 
-console.log('Welcome to the Brain Games!');
+greetingMessage();
 console.log('');
-
-greetingsChat();
+userNameChat();

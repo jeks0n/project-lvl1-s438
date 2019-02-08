@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-import makeGame from '../game';
+import makeGame from '../games/game-even';
 
-const maxRounds = 3;
-makeGame(maxRounds);
+makeGame();
