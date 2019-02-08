@@ -2,7 +2,7 @@ import { randomArithmeticString, makeGame } from '../mainFunctions';
 import { maxRoundNumber } from '../mainConstants';
 import { greetingMessage, userNameChat } from '..';
 
-const evalStringResult = (string) => (`${  eval(string)}`);
+const evalStringResult = string => (`${eval(string)}`);
 
 export default () => {
   greetingMessage();

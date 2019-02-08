@@ -6,9 +6,7 @@ const random = (minNum, maxNum) => () => Math.floor(minNum + Math.random() * (ma
 export const randomInteger = random(minNumber, maxNumber);
 export const isEven = num => (num % 2 === 0 ? 'yes' : 'no');
 
-export const randomArithmeticString = () => {
-  return `${randomInteger()} ${operatorList[random(0, operatorList.length - 1)()]} ${randomInteger()}`;
-};
+export const randomArithmeticString = () => `${randomInteger()} ${operatorList[random(0, operatorList.length - 1)()]} ${randomInteger()}`;
 
 export const makeGame = (roundMax, checkFunction, questionFunction, userName) => {
   const makeRound = (roundCurrent) => {
