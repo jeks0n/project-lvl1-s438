@@ -12,8 +12,14 @@ This is an educational repository for Hexlet.io trainig course.
 $ make install
 ```
 
-## Run game
+## Run brain game
 
 ```sh
 $ brain even
+```
+
+## Run calc game
+
+```sh
+$ brain calc
 ```

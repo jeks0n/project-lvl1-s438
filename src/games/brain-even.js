@@ -7,5 +7,7 @@ export default () => {
   console.log('Answer "yes" if number even otherwise answer "no".');
   console.log('');
   const userName = userNameChat();
+  console.log('');
+
   return makeGame(maxRoundNumber, isEven, randomInteger, userName);
 };

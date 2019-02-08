@@ -4,8 +4,11 @@ install:
 start:
 	npx babel-node -- src/bin/brain-games.js
 
-estart:
+evenstart:
 	npx babel-node -- src/bin/brain-even.js
+
+calcstart:
+	npx babel-node -- src/bin/brain-calc.js
 
 publish:
 	npm publish
