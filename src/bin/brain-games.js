@@ -1,6 +1,4 @@
 #!/usr/bin/env node
-import { greetingMessage, userNameChat } from '..';
+import { greetingStartHeader } from '..';
 
-greetingMessage();
-console.log('');
-userNameChat();
+greetingStartHeader();

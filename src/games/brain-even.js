@@ -1,13 +1,10 @@
-import { randomInteger, isEven, makeGame } from '../mainFunctions';
-import { maxRoundNumber } from '../mainConstants';
-import { greetingMessage, userNameChat } from '..';
+import { random } from '../subsidiaryFunctions';
+import { makeGame } from '..';
 
-export default () => {
-  greetingMessage();
-  console.log('Answer "yes" if number even otherwise answer "no".');
-  console.log('');
-  const userName = userNameChat();
-  console.log('');
+const maxRoundNumber = 3;
+const min = 0;
+const max = 10;
+const randomInteger = () => random(min, max);
+const isEven = num => (num % 2 === 0 ? 'yes' : 'no');
 
-  return makeGame(maxRoundNumber, isEven, randomInteger, userName);
-};
+export default () => makeGame('Answer "yes" if number even otherwise answer "no".', maxRoundNumber, isEven, randomInteger);
