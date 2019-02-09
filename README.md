@@ -15,17 +15,23 @@ $ make install
 ## Run brain game
 
 ```sh
-$ brain even
+$ brain-even
 ```
 
 ## Run calc game
 
 ```sh
-$ brain calc
+$ brain-calc
 ```
 
 ## Run gcd game
 
 ```sh
-$ brain gcd
+$ brain-gcd
+```
+
+## Run progression game
+
+```sh
+$ brain-progression
 ```
