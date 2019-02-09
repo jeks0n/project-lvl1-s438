@@ -23,3 +23,9 @@ $ brain even
 ```sh
 $ brain calc
 ```
+
+## Run gcd game
+
+```sh
+$ brain gcd
+```
