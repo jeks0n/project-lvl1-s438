@@ -1,5 +1,4 @@
 import readlineSync from 'readline-sync';
-import { random, randomInteger } from './subsidiaryFunctions';
 
 export const greetingStartHeader = (whatShouldBeDone) => {
   console.log('Welcome to the Brain Games!');
@@ -17,11 +16,8 @@ export const greetingStartHeader = (whatShouldBeDone) => {
   return userName;
 };
 
-const operatorList = ['+', '-', '*'];
-const triplet = (a, b, c) => f => f(a, b, c);
-
-export const makeGame = (whatShouldBeDone, roundMax, checkFunction, questionFunction) => {
-  const userName = greetingStartHeader(whatShouldBeDone);
+export const makeGame = (message, constructorFunc, checkFunc, questionFunc, roundMax = 3) => {
+  const userName = greetingStartHeader(message);
 
   const makeRound = (roundCurrent) => {
     if (roundCurrent > roundMax) {
@@ -29,11 +25,11 @@ export const makeGame = (whatShouldBeDone, roundMax, checkFunction, questionFunc
       return;
     }
 
-    const initialValue = triplet(randomInteger(), randomInteger(), operatorList[random(0, operatorList.length - 1)]); // eslint-disable-line
-    const question = questionFunction(initialValue);
+    const initialValue = constructorFunc();
+    const question = questionFunc(initialValue);
     console.log(`Question: ${question}`);
     const answer = readlineSync.question('Your answer: ');
-    const correctAnswer = checkFunction(initialValue);
+    const correctAnswer = checkFunc(initialValue);
 
     if (answer !== correctAnswer) {
       console.log(`'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);

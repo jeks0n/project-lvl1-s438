@@ -1,7 +1,11 @@
 import { makeGame } from '..';
+import { randomInteger as randomInt } from '../subsidiaryFunctions';
 
-const maxRoundNumber = 3;
+const whatShouldBeDone = 'Answer "yes" if number even otherwise answer "no".';
+
+const constructorFunction = (a = randomInt()) => f => f(a);
 const question = z => z(num => num);
-const correctAnswer = z => z(num => (num % 2 === 0 ? 'yes' : 'no'));
+const isEven = num => num % 2 === 0;
+const correctAnswer = z => z(num => (isEven(num) ? 'yes' : 'no'));
 
-export default () => makeGame('Answer "yes" if number even otherwise answer "no".', maxRoundNumber, correctAnswer, question);
+export default () => makeGame(whatShouldBeDone, constructorFunction, correctAnswer, question);
