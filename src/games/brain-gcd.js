@@ -1,7 +1,7 @@
 import { makeGame } from '..';
-import { pair } from '../subsidiaryFunctions';
+import { randomInteger } from '../subsidiaryFunctions';
 
-const whatShouldBeDone = 'Find the greatest common divisor of given numbers.';
+const description = 'Find the greatest common divisor of given numbers.';
 
 const gcd = (first, second) => {
   const minValue = Math.min(first, second);
@@ -20,8 +20,10 @@ const gcd = (first, second) => {
   return iter(2, 1);
 };
 
-const constructorFunction = pair;
-const question = z => z((a, b) => `${a} ${b}`);
-const correctAnswer = z => z((a, b) => (`${gcd(a, b)}`));
+const gcdGame = (a = randomInteger(), b = randomInteger()) => {
+  const question = `${a} ${b}`;
+  const answer = `${gcd(a, b)}`;
+  return f => f(question, answer);
+};
 
-export default () => makeGame(whatShouldBeDone, constructorFunction, correctAnswer, question);
+export default () => makeGame(description, gcdGame);

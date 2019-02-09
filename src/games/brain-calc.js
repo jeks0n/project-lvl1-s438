@@ -1,28 +1,23 @@
 import { makeGame } from '..';
-import {
-  random, pair, cons, cdr,
-} from '../subsidiaryFunctions';
+import { random, randomInteger } from '../subsidiaryFunctions';
 
-const whatShouldBeDone = 'What is the result of the expression?';
+const description = 'What is the result of the expression?';
 
-const operatorFunction = (num = random(0, 2)) => {
-  switch (num) {
-    case 0:
-      return pair(z => z((a, b) => `${a} + ${b}`), z => z((a, b) => a + b));
-    case 1:
-      return pair(z => z((a, b) => `${a} - ${b}`), z => z((a, b) => a - b));
-    case 2:
-      return pair(z => z((a, b) => `${a} * ${b}`), z => z((a, b) => a * b));
-    default:
-      return null;
+const calcGame = (a = randomInteger(), b = randomInteger(), c = random(0, 2)) => {
+  if (c === 0) {
+    const question = `${a} + ${b}`;
+    const answer = `${a + b}`;
+    return f => f(question, answer);
+  } if (c === 1) {
+    const question = `${a} - ${b}`;
+    const answer = `${a - b}`;
+    return f => f(question, answer);
+  } if (c === 2) {
+    const question = `${a} * ${b}`;
+    const answer = `${a * b}`;
+    return f => f(question, answer);
   }
+  return null;
 };
 
-const formulaText = operator => cons(operator);
-const formulaCalc = operator => cdr(operator);
-
-const constructorFunction = (pairInit = pair(), c = operatorFunction()) => f => f(pairInit, c);
-const question = z => z((pairInit, c) => `${formulaText(c)(pairInit)}`);
-const correctAnswer = z => z((pairInit, c) => (`${formulaCalc(c)(pairInit)}`));
-
-export default () => makeGame(whatShouldBeDone, constructorFunction, correctAnswer, question);
+export default () => makeGame(description, calcGame);

@@ -13,6 +13,9 @@ calcstart:
 gcdstart:
 	npx babel-node -- src/bin/brain-gcd.js
 
+progrstart:
+	npx babel-node -- src/bin/brain-progression.js
+
 publish:
 	npm publish
 
