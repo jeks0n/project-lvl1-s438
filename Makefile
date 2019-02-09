@@ -10,6 +10,9 @@ evenstart:
 calcstart:
 	npx babel-node -- src/bin/brain-calc.js
 
+gcdstart:
+	npx babel-node -- src/bin/brain-gcd.js
+
 publish:
 	npm publish
 

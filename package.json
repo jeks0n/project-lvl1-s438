@@ -1,6 +1,6 @@
 {
   "name": "braingames-jekson",
-  "version": "1.5.1",
+  "version": "1.6.0",
   "description": "Hexlet project \"brain-games\" ",
   "bin": {
     "brain-games": "dist/bin/brain-games.js",
