@@ -7,24 +7,24 @@ const description = 'What number is missing in the progression?';
 const progressionGame = (length = 10) => {
   const first = randomInteger();
   const step = randomInteger(1, 20);
-  const sequenceNumberToHide = randomInteger(1, length);
-  const iter = (current, iterNumber, acc, hiddenValue) => {
-    if (iterNumber > length) {
-      const question = acc;
-      const answer = `${hiddenValue}`;
-      return cons(question, answer);
+  const hiddenPosition = randomInteger(0, length - 1);
+
+  const calcElement = i => first + step * i;
+  const answer = `${calcElement(hiddenPosition)}`;
+
+  const iter = (i, acc) => {
+    if (i >= length) {
+      return acc;
     }
 
-    if (iterNumber === sequenceNumberToHide) {
-      const newAcc = `${acc} ..`;
-      return iter(current + step, iterNumber + 1, newAcc, current);
-    }
-
-    const newAcc = `${acc} ${current}`;
-    return iter(current + step, iterNumber + 1, newAcc, hiddenValue);
+    const newString = (i === hiddenPosition) ? '..' : calcElement(i);
+    const newAcc = `${acc} ${newString}`;
+    return iter(i + 1, newAcc);
   };
 
-  return iter(first, 1, '');
+  const question = iter(0, '');
+
+  return cons(question, answer);
 };
 
 export default () => makeGame(description, progressionGame);

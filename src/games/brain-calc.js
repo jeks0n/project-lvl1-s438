@@ -5,21 +5,21 @@ import randomInteger from '../utils';
 const description = 'What is the result of the expression?';
 
 const calcGame = () => {
-  const a = randomInteger();
-  const b = randomInteger();
-  const c = randomInteger(0, 2);
+  const first = randomInteger();
+  const second = randomInteger();
+  const operatorNum = randomInteger(0, 2);
 
-  if (c === 0) {
-    const question = `${a} + ${b}`;
-    const answer = `${a + b}`;
+  if (operatorNum === 0) {
+    const question = `${first} + ${second}`;
+    const answer = `${first + second}`;
     return cons(question, answer);
-  } if (c === 1) {
-    const question = `${a} - ${b}`;
-    const answer = `${a - b}`;
+  } if (operatorNum === 1) {
+    const question = `${first} - ${second}`;
+    const answer = `${first - second}`;
     return cons(question, answer);
-  } if (c === 2) {
-    const question = `${a} * ${b}`;
-    const answer = `${a * b}`;
+  } if (operatorNum === 2) {
+    const question = `${first} * ${second}`;
+    const answer = `${first * second}`;
     return cons(question, answer);
   }
   return null;

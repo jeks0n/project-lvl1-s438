@@ -6,24 +6,26 @@ const description = 'Find the greatest common divisor of given numbers.';
 
 const gcd = (first, second) => {
   const minValue = Math.min(first, second);
-  const iter = (num, acc) => {
-    if (num > minValue) {
-      return acc;
+  const iter = (num) => {
+    if (num < 1) {
+      return 1;
     }
 
     if (first % num === 0 && second % num === 0) {
-      return iter(num + 1, num);
+      return num;
     }
 
-    return iter(num + 1, acc);
+    return iter(num - 1);
   };
 
-  return iter(2, 1);
+  return iter(minValue);
 };
 
-const gcdGame = (a = randomInteger(), b = randomInteger()) => {
-  const question = `${a} ${b}`;
-  const answer = `${gcd(a, b)}`;
+const gcdGame = () => {
+  const first = randomInteger();
+  const second = randomInteger();
+  const question = `${first} ${second}`;
+  const answer = `${gcd(first, second)}`;
   return cons(question, answer);
 };
 
