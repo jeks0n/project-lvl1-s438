@@ -1,4 +1,4 @@
 #!/usr/bin/env node
-import greetingStartHeader from '..';
+import welcomeChat from '../welcome';
 
-greetingStartHeader();
+welcomeChat();

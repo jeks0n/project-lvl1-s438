@@ -1,31 +1,17 @@
 import readlineSync from 'readline-sync';
 import { car, cdr } from 'hexlet-pairs';
 
-const greetingStartHeader = (description) => {
-  console.log('Welcome to the Brain Games!');
-
-  if (description) {
-    console.log(`${description}`);
-  }
-  console.log('');
-  const userName = readlineSync.question('May I have your name? ');
-  console.log(`Hello, ${userName}!`);
-
-  if (description) {
-    console.log('');
-  }
-  return userName;
-};
-
+const roundMax = 3;
 const getQuestion = g => car(g);
 const getAnswer = g => cdr(g);
 
-const makeGame = (description, game, roundMax = 3) => {
-  const userName = greetingStartHeader(description);
-
-  if (!game) {
-    return;
-  }
+const makeGame = (description, game) => {
+  console.log('Welcome to the Brain Games!');
+  console.log(`${description}`);
+  console.log('');
+  const userName = readlineSync.question('May I have your name? ');
+  console.log(`Hello, ${userName}!`);
+  console.log('');
 
   const makeRound = (roundCurrent) => {
     if (roundCurrent > roundMax) {
