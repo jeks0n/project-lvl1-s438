@@ -1,4 +1,4 @@
-import { makeGame } from '..';
+import { roundValues, makeGame } from '..';
 import { random, randomInteger } from '../subsidiaryFunctions';
 
 const description = 'What number is missing in the progression?';
@@ -9,7 +9,7 @@ const progressionGame = (first = randomInteger(), step = random(1, 20), length =
     if (iterNumber > length) {
       const question = acc;
       const answer = `${hiddenValue}`;
-      return f => f(question, answer);
+      return roundValues(question, answer);
     }
 
     if (iterNumber === sequenceNumberToHide) {

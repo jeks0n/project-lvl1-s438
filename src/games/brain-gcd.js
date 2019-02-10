@@ -1,4 +1,4 @@
-import { makeGame } from '..';
+import { roundValues, makeGame } from '..';
 import { randomInteger } from '../subsidiaryFunctions';
 
 const description = 'Find the greatest common divisor of given numbers.';
@@ -23,7 +23,7 @@ const gcd = (first, second) => {
 const gcdGame = (a = randomInteger(), b = randomInteger()) => {
   const question = `${a} ${b}`;
   const answer = `${gcd(a, b)}`;
-  return f => f(question, answer);
+  return roundValues(question, answer);
 };
 
 export default () => makeGame(description, gcdGame);

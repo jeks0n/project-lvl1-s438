@@ -16,8 +16,9 @@ export const greetingStartHeader = (description) => {
   return userName;
 };
 
-const gameQuestion = g => g(a => a);
-const gameAnswer = g => g((a, b) => b);
+const roundQuestion = g => g(a => a);
+const roundAnswer = g => g((a, b) => b);
+export const roundValues = (a, b) => f => f(a, b);
 
 export const makeGame = (description, game, roundMax = 3) => {
   const userName = greetingStartHeader(description);
@@ -29,10 +30,10 @@ export const makeGame = (description, game, roundMax = 3) => {
     }
 
     const playableValues = game();
-    const question = gameQuestion(playableValues);
+    const question = roundQuestion(playableValues);
     console.log(`Question: ${question}`);
     const answer = readlineSync.question('Your answer: ');
-    const correctAnswer = gameAnswer(playableValues);
+    const correctAnswer = roundAnswer(playableValues);
 
     if (answer !== correctAnswer) {
       console.log(`'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
