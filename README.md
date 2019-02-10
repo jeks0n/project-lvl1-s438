@@ -35,3 +35,9 @@ $ brain-gcd
 ```sh
 $ brain-progression
 ```
+
+## Run prime game
+
+```sh
+$ brain-prime
+```
