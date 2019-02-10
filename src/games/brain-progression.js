@@ -1,15 +1,18 @@
-import { roundValues, makeGame } from '..';
-import { random, randomInteger } from '../subsidiaryFunctions';
+import makeGame from '..';
+import { cons } from 'hexlet-pairs';
+import randomInteger from '../utils';
 
 const description = 'What number is missing in the progression?';
 
-const progressionGame = (first = randomInteger(), step = random(1, 20), length = 10) => {
-  const sequenceNumberToHide = random(1, length);
+const progressionGame = (length = 10) => {
+  const first = randomInteger();
+  const step = randomInteger(1, 20);
+  const sequenceNumberToHide = randomInteger(1, length);
   const iter = (current, iterNumber, acc, hiddenValue) => {
     if (iterNumber > length) {
       const question = acc;
       const answer = `${hiddenValue}`;
-      return roundValues(question, answer);
+      return cons(question, answer);
     }
 
     if (iterNumber === sequenceNumberToHide) {

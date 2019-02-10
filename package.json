@@ -1,6 +1,6 @@
 {
   "name": "braingames-jekson",
-  "version": "1.7.2",
+  "version": "1.7.3",
   "description": "Hexlet project \"brain-games\" ",
   "bin": {
     "brain-games": "dist/bin/brain-games.js",
@@ -34,6 +34,7 @@
     "eslint-plugin-import": "^2.16.0"
   },
   "dependencies": {
+    "hexlet-pairs": "^1.0.8",
     "readline-sync": "^1.4.9"
   }
 }

@@ -1,6 +1,7 @@
 import readlineSync from 'readline-sync';
+import { car, cdr } from 'hexlet-pairs';
 
-export const greetingStartHeader = (description) => {
+const greetingStartHeader = (description) => {
   console.log('Welcome to the Brain Games!');
 
   if (description) {
@@ -16,12 +17,15 @@ export const greetingStartHeader = (description) => {
   return userName;
 };
 
-const roundQuestion = g => g(a => a);
-const roundAnswer = g => g((a, b) => b);
-export const roundValues = (a, b) => f => f(a, b);
+const getQuestion = g => car(g);
+const getAnswer = g => cdr(g);
 
-export const makeGame = (description, game, roundMax = 3) => {
+const makeGame = (description, game, roundMax = 3) => {
   const userName = greetingStartHeader(description);
+
+  if (!game) {
+    return;
+  }
 
   const makeRound = (roundCurrent) => {
     if (roundCurrent > roundMax) {
@@ -30,10 +34,10 @@ export const makeGame = (description, game, roundMax = 3) => {
     }
 
     const playableValues = game();
-    const question = roundQuestion(playableValues);
+    const question = getQuestion(playableValues);
     console.log(`Question: ${question}`);
     const answer = readlineSync.question('Your answer: ');
-    const correctAnswer = roundAnswer(playableValues);
+    const correctAnswer = getAnswer(playableValues);
 
     if (answer !== correctAnswer) {
       console.log(`'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
@@ -46,3 +50,5 @@ export const makeGame = (description, game, roundMax = 3) => {
 
   makeRound(1);
 };
+
+export default makeGame;
