@@ -16,7 +16,7 @@ const progressionGame = () => {
 
   const iter = (i, acc) => {
     if (i >= length) {
-      return acc;
+      return acc.trim();
     }
 
     const newString = (i === hiddenPosition) ? '..' : calcElement(first, step, i);
@@ -24,7 +24,7 @@ const progressionGame = () => {
     return iter(i + 1, newAcc);
   };
 
-  const question = iter(0, '').trim();
+  const question = iter(0, '');
 
   return cons(question, answer);
 };
